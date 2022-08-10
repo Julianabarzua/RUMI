@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUMI - Expenses</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='expenses.css') }}">
+
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static',filename='logorumi.jpg') }}" alt="logorumi">
+        <h1>Welcome {{usuarioLogeado[0]['first_name']}} - {{grupologeado[0]['name']}}!</h1>
+        <div class="flexbox">
+            <a href="/expenses/new">+ Add expense</a>
+            <a href="/logout">Log out</a>
+        </div>
+    </header>
+
+    <div id="bigcolumn">
+        <br>
+        <div id="bottonsbox">
+            <a href="/expenses/{{yearp}}/{{previous_month}}">< previous month</a>
+            <a href="/expenses/{{yearn}}/{{next_month}}">next month ></a>
+        </div>
+        <h2 class="titulo">{{month_name}} {{year}} Expenses:</h2>
+        
+        <table id="customers">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Owner</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+            {% for expense in expenses %}
+                <tr>
+                    <td>{{expense.date.strftime('%d-%b-%y')}}</td>
+                    <td>{{expense.description}}</td>
+                    <td>${{expense.amount}}</td>
+                    <td>{{expense.posted_by_name}}</td>
+                    {% if expense.posted_by == session['user_id']%}
+                    <td>
+                        <a style="color:black;" href="/expenses/edit/{{expense.id}}">Edit</a>
+                        <a style="color:black;" href="/delete_expense/{{expense.id}}">Delete</a>
+                    </td>
+                    {% else %}
+                    <td></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+                
+            </tbody>
+        </table>
+        <br><br><br>
+
+        <h2 class="titulo2">Summary:</h2>
+        <h4 >Total spent: ${{total}}</h4>
+        <h4 >Average spent by RUMI: ${{average}}</h4>
+
+        <table id="sumary">
+            <thead>
+                <tr>
+                    <th>RUMI</th>
+                    <th>Total spent</th>
+                    <th>result</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+            {% for RUMI in RUMIS %}
+                <tr>
+                    <td>{{RUMI['name']}}</td>
+                    <td>${{RUMI['total_amount']}}</td>
+                    {% if RUMI['result'] > 0%}
+                    <td> ows {{RUMI['result']}} </td>
+                    {% else %}
+                    <td> recieves {{RUMI['result']|abs}} </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+                
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>

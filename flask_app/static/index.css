@@ -1,0 +1,94 @@
+*{
+    padding: 0;
+    margin: 0;
+    /* border: 1px dashed orangered; */
+}
+
+body{
+    background-color: whitesmoke;
+}
+
+h1,h2,h3,h4, h5,a, form, p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* text-align: center; */
+}
+
+.titulo{
+    margin: 20px 0;
+    color: #54AF32;
+}
+
+#bigcolumn{
+    background-color:white;
+    width: 900px;
+    margin: 0 auto;
+    /* padding: 20px; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.halfcolumn {
+    width: 400px;
+    margin: 40px;
+}
+
+input[type=text], input[type=email], input[type=password], select{
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+input[type=submit]{
+    color: white;
+    background-color: #5A5A5A;
+    border: none;
+    height: 30px;
+    width: 25%;
+    box-shadow: 2px 4px black;
+}
+
+a{
+    margin-left: 15px;
+    color: #5A5A5A;
+}
+
+p{
+    margin-top: 15px;
+    color: red;
+    font-weight: bolder;
+}
+
+#register{
+    background-color: #54AF32;
+    padding: 0 40px 40px;
+}
+
+#registitle{
+    color: white;
+}
+
+#flash{
+    width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+header{
+    width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #54AF32;
+    padding: 20px 0px;
+}
+
+header > h1,h4{
+    color: white;
+    margin: 10px;
+}
+
+img{
+    height: 100px;
+    margin-left: 15px;
+}

@@ -1,0 +1,141 @@
+*{
+    padding: 0;
+    margin: 0;
+    /* border: 1px dashed orangered; */
+}
+
+body{
+    padding: 0 20px;
+    background-color: whitesmoke;
+}
+
+header{
+    width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #54AF32;
+    padding: 0 20px;
+
+}
+
+header > h1, header > h4, .flexbox >a{
+    color: white;
+    margin: 10px;
+}
+
+#bigcolumn{
+    background-color:white;
+    width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    flex-direction: column;
+}
+
+
+h1,h2,h3,h4, h5,a, form {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+.titulo{
+    margin: 20px 0;
+    color: #54AF32;
+}
+
+.titulo2{
+    margin: 20px 0;
+    color: #545454;
+}
+
+a{
+    margin-top: 15px;
+}
+
+.flexbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.lighter{
+    font-weight: lighter;
+}
+
+
+#user{
+    margin: 10px
+}
+
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #54AF32;
+    color: white;
+}
+
+#sumary {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+#sumary td, #sumary th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#sumary tr:nth-child(even){background-color: #f2f2f2;}
+
+#sumary tr:hover {background-color: #ddd;}
+
+#sumary th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #545454;
+    color: white;
+}
+
+h4{
+    margin-bottom: 10px;
+    color: #545454;
+}
+
+img{
+    height: 100px;
+    margin-left: 15px;
+}
+
+#bottonsbox {
+    display: flex;
+    justify-content: space-between;
+}
+
+#bottonsbox > a {
+    color:#545454;
+}

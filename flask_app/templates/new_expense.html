@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='new_expense.css') }}">
+
+</head>
+<body>
+    <header>
+        <h1>Add a expense!</h1>
+        <div class="flexbox">
+            <a href="/expenses/{{session['year']}}/{{session['month']}}">All expenses</a>
+            <a href="/logout">Log out</a>
+        </div>
+    </header>
+
+    <div id="bigcolumn">
+
+        
+        <form class="flexbox" action="/add_expense" method="post">
+            
+            <div id="register" class="halfcolumn">
+
+                <label for="date">Expense Date:</label>
+                <input type="date" name="date">
+
+
+                <label for="amount">Amount:</label>
+                <input type="number" name="amount">
+
+                <label for="description">Description:</label>
+                <textarea name="description" rows="5"></textarea>
+
+                <input type="submit" value="Add">
+            </div>
+
+            
+        </form>
+        
+        
+    </div>
+    {% with messages = get_flashed_messages()%}
+    {%if messages%}
+    {%for message in messages%}
+    <p>{{message}}</p>
+    {%endfor%}
+    {%endif%}
+    {%endwith%}
+</body>
+</html>

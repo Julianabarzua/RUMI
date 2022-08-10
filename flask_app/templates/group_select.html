@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUMI - Login / Register</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='index.css') }}">
+
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static',filename='logorumi.jpg') }}" alt="logorumi">
+    </header>
+
+    <div id="bigcolumn">
+        
+        <div class="halfcolumn">
+            
+            <h1 class="titulo">Select Group:</h1>
+            
+            <form action="/add_user_to_group" method="post">
+                
+                
+                <label for="group">Select Group:</label>
+                <select name="groups">
+                    {% for group in groups%}
+                        <option value="{{group['id']}}">{{group['name']}}</option>
+                    {%endfor%}
+                </select>
+                
+                
+                <label for="pin">PIN:</label>
+                <input type="password" name="pin">
+                
+                
+                <input type="submit" value="Select Group">
+                <a href="/create_group">+ Create new group</a>
+            </form>
+        
+        </div>
+        
+        
+    </div>
+
+    <div id="flash">
+
+        {% with messages = get_flashed_messages()%}
+        {%if messages%}
+        {%for message in messages%}
+        <p>{{message}}</p>
+        {%endfor%}
+        {%endif%}
+        {%endwith%}
+    </div>
+</body>
+</html>
